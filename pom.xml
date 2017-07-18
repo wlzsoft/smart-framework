@@ -7,6 +7,15 @@
   <packaging>pom</packaging>
   <modules>
     <module>basics</module>
+    <module>dao</module>
+    <module>cache-redis</module>
+    <module>rpc</module>
+    <module>rpc-client</module>
+    <module>rpc-server</module>
+    <module>mq-client</module>
+    <module>mq-server</module>
+    <module>tools</module>
+    <module>cache-memcached</module>
   </modules>
   <properties>
 		<spring.version>4.0.9.RELEASE</spring.version>
