@@ -17,6 +17,7 @@
     <module>tools</module>
     <module>cache-memcached</module>
     <module>mongodb</module>
+    <module>dto</module>
   </modules>
   <properties>
 		<spring.version>4.0.9.RELEASE</spring.version>
