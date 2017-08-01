@@ -1,4 +1,4 @@
-package com.smartframe.cacheredis;
+package com.smartframe.rediscache;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
