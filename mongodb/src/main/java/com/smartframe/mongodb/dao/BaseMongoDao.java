@@ -16,7 +16,7 @@ import com.smartframe.entity.Page;
 import com.smartframe.mongodb.ReflectionUtils;
 
 @Repository
-public class BaseMongoDao<T>  {
+public class BaseMongoDao {
 	/** 
      * spring mongodb　集成操作类　 
      */  
@@ -35,7 +35,7 @@ public class BaseMongoDao<T>  {
 	/** 
      * 插入 
      */
-    public T save(T entity) {  
+    public <T> T save(T entity) {  
         mongoTemplate.insert(entity);  
         return entity;  
     }  
@@ -44,7 +44,7 @@ public class BaseMongoDao<T>  {
     /** 
      * 根据ID查询 
      */ 
-    public T findById(String id) {  
+    public <T>T findById(String id) {  
         return mongoTemplate.findById(id, this.getEntityClass());  
     }  
   
@@ -52,7 +52,7 @@ public class BaseMongoDao<T>  {
     /** 
      * 通过ID获取记录,并且指定了集合名(表的意思) 
      */ 
-    public T findById(String id, String collectionName) {  
+    public <T>T findById(String id, String collectionName) {  
         return mongoTemplate.findById(id, this.getEntityClass(), collectionName);  
     }  
   
@@ -60,35 +60,35 @@ public class BaseMongoDao<T>  {
     /** 
      * 获得所有该类型记录 
      */ 
-    public List<T> findAll() {  
+    public <T> List<T> findAll() {  
         return mongoTemplate.findAll(this.getEntityClass());  
     }  
   
     /** 
      * 获得所有该类型记录,并且指定了集合名(表的意思) 
      */ 
-    public List<T> findAll(String collectionName) {  
+    public <T> List<T> findAll(String collectionName) {  
         return mongoTemplate.findAll(this.getEntityClass(), collectionName);  
     }  
   
     /** 
      * 根据条件查询 
      */ 
-    public List<T> find(Query query) {  
+    public <T> List<T> find(Query query) {  
         return mongoTemplate.find(query, this.getEntityClass());  
     }  
   
     /** 
      * 根据条件查询一个 
      */ 
-    public T findOne(Query query) {  
+    public <T> T findOne(Query query) {  
         return mongoTemplate.findOne(query, this.getEntityClass());  
     }  
   
     /** 
      * 分页查询 
      */  
-    public Page<T> findPage(Page<T> page, Query query) {  
+    public <T> Page<T> findPage(Page<T> page, Query query) {  
         //如果没有条件 则所有全部  
         query=query==null?new Query(Criteria.where("_id").exists(true)):query;  
         long count = this.count(query);  
@@ -123,7 +123,7 @@ public class BaseMongoDao<T>  {
     /** 
      * 更新符合条件并sort之后的第一个文档 并返回更新后的文档 
      */ 
-    public T updateOne(Query query, Update update) {  
+    public <T> T updateOne(Query query, Update update) {  
         if (update==null) {  
             return null;  
         }  
@@ -133,7 +133,7 @@ public class BaseMongoDao<T>  {
     /** 
      * 根据传入实体ID更新 
      */ 
-    public WriteResult update(T entity) {  
+    public <T> WriteResult update(T entity) {  
         Field[] fields = this.getEntityClass().getDeclaredFields();  
         if (fields == null || fields.length <= 0) {  
             return null;  
@@ -182,7 +182,7 @@ public class BaseMongoDao<T>  {
     /** 
      * 获得泛型类 
      */  
-    private Class<T> getEntityClass() {  
+    private <T> Class<T> getEntityClass() {  
 
         return ReflectionUtils.getSuperClassGenricType(getClass());  
     } 

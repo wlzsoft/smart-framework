@@ -29,6 +29,8 @@ public class Result<T> {
 		this.value = value;
 	}
 	
+	public Result() {
+	}
 
 	public Integer getCode() {
 		return code;
