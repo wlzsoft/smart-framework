@@ -609,9 +609,9 @@ public class DateUtil {
 	 */
 	public static int compareDate(Date dt1,Date dt2){
         if (dt1.getTime() > dt2.getTime()) {
-            return 1;
+            return 1;// 大于
         } else if (dt1.getTime() < dt2.getTime()) {
-            return -1;
+            return -1;//小于
         } else {//相等
             return 0;
         }
