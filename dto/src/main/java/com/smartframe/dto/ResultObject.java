@@ -41,6 +41,21 @@ public class ResultObject{
 	
 	
 	/**
+	 * 方法用途: 业务提示验证权限<br>
+	 * 操作步骤: TODO<br>
+	 * @param message
+	 * @return
+	 */
+	public static Result<String> sucreMessage(String message) {
+		Result<String> result = new Result<String>(message);
+		result.setCode(HttpStatusEnum.UNAUTHORIZED.value());
+		result.setSuccess(false);
+		result.setValue(message);
+		return result;
+	}
+	
+	
+	/**
 	 * 方法用途: 成功返回对象<br>
 	 * 操作步骤: TODO<br>
 	 * @param message
