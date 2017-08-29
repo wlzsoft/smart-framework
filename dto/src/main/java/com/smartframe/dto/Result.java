@@ -15,6 +15,12 @@ public class Result<T> {
 	
 	
 	/**
+	 * 信息 提示
+	 */
+	private String message;
+	
+	
+	/**
 	 * 结果对象
 	 */
 	private T value;
@@ -56,6 +62,14 @@ public class Result<T> {
 	public void setSuccess(boolean success) {
 		this.success = success;
 	}
+	
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	public long getDateline() {
 		return dateline;
@@ -64,6 +78,6 @@ public class Result<T> {
 	@Override
 	public String toString() {
 		return "Result [success=" + success + ", code=" + code + ", dateline="
-				+ dateline + ", value="+ dateline + "]";
+				+ dateline + ", message=" + message + ",value="+ value + "]";
 	}
 }

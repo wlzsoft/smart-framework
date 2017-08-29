@@ -21,7 +21,8 @@ public class ResultObject{
 		Result<String> result = new Result<String>(message);
 		result.setCode(HttpStatusEnum.OK.value());
 		result.setSuccess(true);
-		result.setValue(message);
+		result.setValue(null);
+		result.setMessage(message);
 		return result;
 	}
 	
@@ -35,7 +36,8 @@ public class ResultObject{
 		Result<String> result = new Result<String>(message);
 		result.setCode(HttpStatusEnum.OK.value());
 		result.setSuccess(false);
-		result.setValue(message);
+		result.setValue(null);
+		result.setMessage(message);
 		return result;
 	}
 	
@@ -50,7 +52,8 @@ public class ResultObject{
 		Result<String> result = new Result<String>(message);
 		result.setCode(HttpStatusEnum.UNAUTHORIZED.value());
 		result.setSuccess(false);
-		result.setValue(message);
+		result.setValue(null);
+		result.setMessage(message);
 		return result;
 	}
 	
@@ -61,10 +64,14 @@ public class ResultObject{
 	 * @param message
 	 * @return
 	 */
-	public static <T> Result<T> successObject(T t) {
+	public static <T> Result<T> successObject(T t,String message) {
 		Result<T> result = new Result<T>(t);
 		result.setCode(HttpStatusEnum.OK.value());
 		result.setSuccess(true);
+		if(null==message||message.equals("")){
+			message="成功";
+		}
+		result.setMessage(message);
 		result.setValue(t);
 		return result;
 	}
