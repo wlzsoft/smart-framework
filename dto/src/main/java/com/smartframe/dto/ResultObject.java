@@ -34,7 +34,7 @@ public class ResultObject{
 	 */
 	public static Result<String> warnMessage(String message) {
 		Result<String> result = new Result<String>(message);
-		result.setCode(HttpStatusEnum.OK.value());
+		result.setCode(HttpStatusEnum.INVALID.value());
 		result.setSuccess(false);
 		result.setValue(null);
 		result.setMessage(message);
