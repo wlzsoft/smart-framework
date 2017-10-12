@@ -35,7 +35,7 @@ public class ResultObject{
 	public static Result<String> warnMessage(String message) {
 		Result<String> result = new Result<String>(message);
 		result.setCode(HttpStatusEnum.INVALID.value());
-		result.setSuccess(false);
+		result.setSuccess(true);
 		result.setValue(null);
 		result.setMessage(message);
 		return result;
@@ -51,7 +51,7 @@ public class ResultObject{
 	public static Result<String> sucreMessage(String message) {
 		Result<String> result = new Result<String>(message);
 		result.setCode(HttpStatusEnum.UNAUTHORIZED.value());
-		result.setSuccess(false);
+		result.setSuccess(true);
 		result.setValue(null);
 		result.setMessage(message);
 		return result;
