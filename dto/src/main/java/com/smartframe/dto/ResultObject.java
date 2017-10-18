@@ -51,7 +51,7 @@ public class ResultObject{
 	public static Result<String> sucreMessage(String message) {
 		Result<String> result = new Result<String>(message);
 		result.setCode(HttpStatusEnum.UNAUTHORIZED.value());
-		result.setSuccess(true);
+		result.setSuccess(false);
 		result.setValue(null);
 		result.setMessage(message);
 		return result;
