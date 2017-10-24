@@ -16,7 +16,7 @@ public class FileUtil {
      * @return File 
      * @throws IOException 
      */  
-    private static File multipartToFile(MultipartFile multfile) throws IOException {  
+    public static File multipartToFile(MultipartFile multfile) throws IOException {  
         CommonsMultipartFile cf = (CommonsMultipartFile)multfile;   
         //这个myfile是MultipartFile的  
         DiskFileItem fi = (DiskFileItem) cf.getFileItem();  
