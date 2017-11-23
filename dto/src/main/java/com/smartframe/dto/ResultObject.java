@@ -1,5 +1,7 @@
 package com.smartframe.dto;
 
+import com.smartframe.enums.HttpStatusEnum;
+
 /**
  * 
  * <p><b>Title:</b><i>传递结果信息</i></p>

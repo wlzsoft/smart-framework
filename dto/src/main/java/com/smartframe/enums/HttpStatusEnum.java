@@ -1,4 +1,4 @@
-package com.smartframe.dto;
+package com.smartframe.enums;
 
 
 /**
