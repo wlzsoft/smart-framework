@@ -6,8 +6,13 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.smartframe.entity.UserCur;
 
 public class Login_Token_Interceptor implements HandlerInterceptor {
 	
@@ -21,7 +26,7 @@ public class Login_Token_Interceptor implements HandlerInterceptor {
 		if(url.indexOf("/login")>=0){ 
 		    return true;    
 		}else{
-			String token = response.getHeader("token");
+			String token = request.getHeader("token");
 			
 			if(null==token||token.equals("")){
 				LOGGER.warn("Token获取为null");
@@ -29,14 +34,19 @@ public class Login_Token_Interceptor implements HandlerInterceptor {
 				return false;
 			}
 			
-			HttpSession session = request.getSession(); 
-			String tokens = (String)session.getAttribute(token); //获取服务端token是否存在
-			
-			if(null==tokens||tokens.equals("")){
-				response.setStatus(401);
-				return false;
+			RequestAttributes ra = RequestContextHolder.getRequestAttributes();
+			if(ra != null) {
+				request = ((ServletRequestAttributes)ra).getRequest(); 
 			}
-			return true;
+			
+			HttpSession session = request.getSession(); 
+			UserCur userCur = (UserCur)session.getAttribute(token); //获取服务端token是否存在
+			
+			if(userCur != null){
+				  return true; 
+			}
+			response.setStatus(401);
+			return false;
 		}
 	}
 
