@@ -20,7 +20,12 @@
 	  <groupId>org.springframework.data</groupId>
 	  <artifactId>spring-data-redis</artifactId>
 	  <version>1.8.1.RELEASE</version>
-	</dependency>  
+	</dependency> 
+	<dependency>
+	  <groupId>com.smartframe</groupId>
+	  <artifactId>basics</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	</dependency> 
 	<dependency>
 	  <groupId>redis.clients</groupId>
 	  <artifactId>jedis</artifactId>
