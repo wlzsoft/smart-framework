@@ -54,9 +54,9 @@ public class RedisStringDaoImpl<T> implements RedisStringDao<T> {
 	 * @param value 对象值
 	 */
 	@Override
-	public void add(String key, int export,  T value) throws BusinessException {
+	public void add(String key,int export,T value) throws BusinessException {
 		ValueOperations<String, T>  stringOperations  = redisTemplate.opsForValue();
-		stringOperations.set(key, value, export, TimeUnit.SECONDS);//秒
+		stringOperations.set(key, value, export, TimeUnit.MINUTES);//分钟
 	}
 
 	/** 

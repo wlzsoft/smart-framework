@@ -1,5 +1,7 @@
 package com.smartframe.rediscache.dao;
 
+import java.util.concurrent.TimeUnit;
+
 import com.smartframe.basics.exception.BusinessException;
 
 
@@ -26,7 +28,7 @@ public interface RedisStringDao<T> extends java.io.Serializable{
 	 * @param export 超时时间
 	 * @param value 对象值
 	 */	
-	public void add(String key, int export,  T value) throws BusinessException;
+	public void add(String key,int export,T value) throws BusinessException;
 	
 	
 	/** 
