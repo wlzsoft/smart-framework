@@ -18,6 +18,7 @@
     <module>cache-memcached</module>
     <module>mongodb</module>
     <module>dto</module>
+    <module>httpClient</module>
   </modules>
   <properties>
 		<spring.version>4.2.6.RELEASE</spring.version>

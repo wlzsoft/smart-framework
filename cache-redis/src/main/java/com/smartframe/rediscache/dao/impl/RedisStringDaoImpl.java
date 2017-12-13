@@ -67,8 +67,13 @@ public class RedisStringDaoImpl<T> implements RedisStringDao<T> {
 	 */
 	@Override
 	public Object get(String key) throws BusinessException {
-		ValueOperations<String, T>  stringOperations  = redisTemplate.opsForValue();
-		return stringOperations.get(key);
+		Boolean flag =redisTemplate.hasKey(key);
+		if(flag){
+			ValueOperations<String, T>  stringOperations  = redisTemplate.opsForValue();
+			return stringOperations.get(key);
+		}else{
+			return "";
+		}
 	}
 	
 	/** 
