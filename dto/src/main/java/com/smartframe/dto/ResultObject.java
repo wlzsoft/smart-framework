@@ -37,7 +37,23 @@ public class ResultObject{
 	public static Result<String> warnMessage(String message) {
 		Result<String> result = new Result<String>(message);
 		result.setCode(HttpStatusEnum.INVALID.value());
-		result.setSuccess(true);
+		result.setSuccess(false);
+		result.setValue(null);
+		result.setMessage(message);
+		return result;
+	}
+	
+	
+	/**
+	 * 方法用途: 自定义状态码返回<br>
+	 * 操作步骤: TODO<br>
+	 * @param message
+	 * @return
+	 */
+	public static Result<String> customMessage(Integer code ,String message) {
+		Result<String> result = new Result<String>(message);
+		result.setCode(code);
+		result.setSuccess(false);
 		result.setValue(null);
 		result.setMessage(message);
 		return result;
