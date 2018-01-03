@@ -22,7 +22,19 @@ public class Page<T> implements Serializable {
 	    /** 
 	     * 总记录数 
 	     */  
-	    private int totalCount;  
+	    private int totalCount; 
+	    
+	    private T t;
+	    
+	    /**
+		 * 排序字段名
+		 */
+		private String sortName;
+		/**
+		 * 排序
+		 */
+		private String sortOrder;
+	    
 	    /** 
 	     * 结果列表 
 	     */  
@@ -60,8 +72,27 @@ public class Page<T> implements Serializable {
 	    public void setTotalCount(int totalCount) {  
 	        this.totalCount = totalCount;  
 	    }  
+	    
 	  
-	    /** 
+	    public T getT() {
+			return t;
+		}
+		public void setT(T t) {
+			this.t = t;
+		}
+		public String getSortName() {
+			return sortName;
+		}
+		public void setSortName(String sortName) {
+			this.sortName = sortName;
+		}
+		public String getSortOrder() {
+			return sortOrder;
+		}
+		public void setSortOrder(String sortOrder) {
+			this.sortOrder = sortOrder;
+		}
+		/** 
 	     * 设置结果 及总页数 
 	     * @param list 
 	     */  
