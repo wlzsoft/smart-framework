@@ -1,7 +1,5 @@
 package com.smartframe.rediscache.dao;
 
-import java.util.concurrent.TimeUnit;
-
 import com.smartframe.basics.exception.BusinessException;
 
 
